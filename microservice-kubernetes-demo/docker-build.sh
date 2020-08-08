@@ -2,7 +2,7 @@
 if [ -z "$DOCKER_ACCOUNT" ]; then
     DOCKER_ACCOUNT=ashwin139
 fi;
-DOCKER_USER_NAME=ashwin139
+DOCKER_USERNAME=ashwin139
 DOCKER_PASSWORD=Ashwin1925s
 docker login docker.pkg.github.com --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
 docker build --tag=microservice-kubernetes-demo-apache apache
