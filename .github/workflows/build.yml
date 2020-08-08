@@ -13,9 +13,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up JDK  Java 10
+    - name: Set up JDK 10
       uses: actions/setup-java@v1
       with:
         java-version: 10
     - name: Log into registry
-      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      run: 
+        docker logout --help
+        docker logout https://registry-1.docker.io/v2
+  
