@@ -2,10 +2,6 @@
 if [ -z "$DOCKER_ACCOUNT" ]; then
     DOCKER_ACCOUNT=ashwin139
 fi;
-DOCKER_USERNAME = ${{ secrets.DOCKER_USERNAME }}
-DOCKER_PASSWORD= ${{ secrets.DOCKER_PASSWORD }}
-echo $DOCKER_USERNAME
-echo $DOCKER_PASSWORD
 docker login -u ashwin139 -p Ashwin1925s
 docker build --tag=microservice-kubernetes-demo-apache apache
 docker tag microservice-kubernetes-demo-apache ashwin139/microservice-kubernetes-demo-apache:latest
