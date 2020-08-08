@@ -13,9 +13,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: Log into registry
+    - name: Set up JDK 10
+      uses: actions/setup-java@v1
+      with:
+        java-version: 10
+    - name: Build bonus microservice with Maven
+      run: cd microservice-kubernetes-demo && mvn -B package --file pom.xml
+    - name: Log into Docker Registry
       run: docker login docker.pkg.github.com --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Create and push Docker images
+      run: cd microservice-kubernetes-demo && sh ./docker-build.sh
