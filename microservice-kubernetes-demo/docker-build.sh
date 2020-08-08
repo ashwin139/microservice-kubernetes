@@ -3,7 +3,7 @@ if [ -z "$DOCKER_ACCOUNT" ]; then
     DOCKER_ACCOUNT=ashwin139
 fi;
 
-docker login docker.pkg.github.com --username ashwin139 --password Ashwin1925s
+docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
 docker build --tag=microservice-kubernetes-demo-apache apache
 docker tag microservice-kubernetes-demo-apache ashwin139/microservice-kubernetes-demo-apache:latest
 docker push ashwin139/microservice-kubernetes-demo-apache
