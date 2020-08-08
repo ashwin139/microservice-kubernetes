@@ -1,1 +1,1 @@
-This is the a new file to test 
+This is the a new file to test with docker details
