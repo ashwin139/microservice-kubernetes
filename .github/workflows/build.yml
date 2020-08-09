@@ -26,3 +26,17 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     - name: Create and push Docker images
       run: cd microservice-kubernetes-demo && sh ./docker-build.sh
+
+    - name: EKS kubectl
+      uses: ianbelcher/eks-kubectl-action@v1.1
+      with:
+        # Your AWS_ACCESS_KEY_ID
+        aws_access_key_id: AKIA5QWRTYZFT3AI46WI
+        # Your AWS_SECRET_ACCESS_KEY
+        aws_secret_access_key: 
+        # The region of the cluster
+        aws_region: zU44rtciTeNuPvrDpGrGKL9d1CmTy2gZqi9sidhm
+        # The name of the cluster you're using
+        cluster_name: kubernetes
+        # The arguments that you want to pass through to the kubectl command
+        args: kubectl get pods
