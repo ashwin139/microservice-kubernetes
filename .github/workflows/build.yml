@@ -19,11 +19,6 @@ jobs:
         java-version: 10
     - name: Build bonus microservice with Maven
       run: cd microservice-kubernetes-demo && mvn -B package --file pom.xml
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     - name: Log into Docker Registry
       run: docker login docker.pkg.github.com --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
       env:
